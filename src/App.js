@@ -35,14 +35,19 @@ class App extends Component {
       this.shuffleFlags();
     } else {
       let score = this.state.score + 1;
-      let selectedFlag = this.state.selectedFlags;
-      selectedFlag.push(id);
-      this.setState({
-        msg: this.randomMsg(),
-        selectedFlags: selectedFlag,
-        score: score
-      });
-      this.shuffleFlags();
+      if (score === 9) {
+        this.setState({ msg: "YOU WON!!!" });
+        this.setState({ score: 0, selectedFlags: [] });
+      } else {
+        let selectedFlag = this.state.selectedFlags;
+        selectedFlag.push(id);
+        this.setState({
+          msg: this.randomMsg(),
+          selectedFlags: selectedFlag,
+          score: score
+        });
+        this.shuffleFlags();
+      }
     }
   };
 
