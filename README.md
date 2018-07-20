@@ -12,3 +12,11 @@ again 😉.
 ## What I used
 
 This game was built using [React JS](https://reactjs.org/).
+
+## Demo
+
+Live demo: https://murmuring-waters-94822.herokuapp.com/
+
+---
+
+[![Screenshot](https://s8.postimg.cc/6c2twhocl/Screenshot_2018-07-19_React_Memory-_Game.png)](https://murmuring-waters-94822.herokuapp.com/)
