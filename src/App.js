@@ -23,7 +23,7 @@ class App extends Component {
     this.setState({ msg: "" });
     if (this.state.selectedFlags.includes(id)) {
       this.setState({ msg: "YOU LOSE!" });
-      let lose = this.state.loses++;
+      let lose = this.state.loses + 1;
       let score = this.state.score;
       let highScore = this.state.highScore;
       if (score > highScore) {
@@ -36,11 +36,10 @@ class App extends Component {
       this.setState({ selectedFlags: [] });
       this.shuffleFlags();
     } else {
-      this.setState({ msg: "Good job! now pick another flag..." });
-
-      let score = this.state.score++;
+      this.setState({ msg: this.randomMsg() });
+      let score = this.state.score + 1;
       let selectedFlag = this.state.selectedFlags.push(id);
-      this.setState({ selectedFlag });
+      this.setState({ selectedFlag, score: score });
       console.log(this.state.selectedFlags);
       this.shuffleFlags();
     }
@@ -61,6 +60,18 @@ class App extends Component {
     this.setState({ flags: shuffled });
   };
 
+  randomMsg = () => {
+    const msgArr = [
+      "Good job!",
+      "Keep on going!",
+      "Awesome!",
+      "Lets see you do that again...",
+      "Niceeeeeeee!"
+    ];
+    let randInd = Math.floor(Math.random() * msgArr.length);
+    return msgArr[randInd];
+  };
+
   render() {
     return (
       <div>
@@ -72,6 +83,11 @@ class App extends Component {
           />
           <br />
           <br />
+          <div className="text-center">
+            <br />
+            <br />
+            <h4>{this.state.msg}</h4>
+          </div>
           <Wrapper>
             {this.state.flags.map(flags => (
               <GameCard
@@ -82,11 +98,6 @@ class App extends Component {
               />
             ))}
           </Wrapper>
-          <div className="text-center">
-            <br />
-            <br />
-            <h4>{this.state.msg}</h4>
-          </div>
           <Footer />
         </div>
       </div>
