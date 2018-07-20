@@ -4,12 +4,20 @@ import "./Header.css";
 const Header = props => (
   <div className="header fixed-top">
     <div className="text-center">
-      <h4>Fun with (red) flags!</h4>
-      <span className="score">Total Score: {props.score}</span>
-      &nbsp;|&nbsp;
-      <span className="loses">Games Lost: {props.loses}</span>
-      &nbsp;|&nbsp;
-      <span className="highScore">High Score: {props.highScore}</span>
+      <h2>
+        Fun with (<span style={{ color: "red" }}>red</span>) flags!
+      </h2>
+      <span className="score tab" style={{ "font-size": "1.1em" }}>
+        <b>Total Score:</b> {props.score}
+      </span>
+      <span className="loses tab">
+        <i>Games Lost:</i>{" "}
+        <span style={{ color: "lightgray" }}>{props.loses}</span>
+      </span>
+      <span className="highScore tab">
+        <i>High Score:</i>{" "}
+        <span style={{ color: "lightgreen" }}>{props.highScore}</span>
+      </span>
     </div>
   </div>
 );

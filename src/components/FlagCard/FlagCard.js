@@ -1,12 +1,12 @@
 import React from "react";
-import "./GameCard.css";
+import "./FlagCard.css";
 
-const GameCard = props => (
+const FlagCard = props => (
   <div
     className="card col-md-3"
     style={{ backgroundImage: props.image ? `url(${props.image})` : "none" }}
-    onClick={() => props.handleGameCardClick(props.id)}
+    onClick={() => props.handleFlagCardClick(props.id)}
   />
 );
 
-export default GameCard;
+export default FlagCard;

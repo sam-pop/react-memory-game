@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Wrapper from "./components/Wrapper/Wrapper";
 import Header from "./components/Header";
-import GameCard from "./components/GameCard/GameCard";
+import FlagCard from "./components/FlagCard/FlagCard";
 import Footer from "./components/Footer";
 import flags from "./flags.json";
+import "./App.css";
 
 class App extends Component {
   state = {
@@ -19,28 +20,28 @@ class App extends Component {
     this.shuffleFlags();
   }
 
-  handleGameCardClick = id => {
-    this.setState({ msg: "" });
+  handleFlagCardClick = id => {
     if (this.state.selectedFlags.includes(id)) {
-      this.setState({ msg: "YOU LOSE!" });
+      this.setState({ msg: "GAME OVER... try again!" });
       let lose = this.state.loses + 1;
       let score = this.state.score;
       let highScore = this.state.highScore;
       if (score > highScore) {
         highScore = score;
-        this.setState({ highScore });
+        this.setState({ highScore: highScore });
       }
       score = 0;
-      this.setState({ score });
-      this.setState({ lose });
-      this.setState({ selectedFlags: [] });
+      this.setState({ score: score, loses: lose, selectedFlags: [] });
       this.shuffleFlags();
     } else {
-      this.setState({ msg: this.randomMsg() });
       let score = this.state.score + 1;
-      let selectedFlag = this.state.selectedFlags.push(id);
-      this.setState({ selectedFlag, score: score });
-      console.log(this.state.selectedFlags);
+      let selectedFlag = this.state.selectedFlags;
+      selectedFlag.push(id);
+      this.setState({
+        msg: this.randomMsg(),
+        selectedFlags: selectedFlag,
+        score: score
+      });
       this.shuffleFlags();
     }
   };
@@ -69,7 +70,7 @@ class App extends Component {
       "Niceeeeeeee!"
     ];
     let randInd = Math.floor(Math.random() * msgArr.length);
-    return msgArr[randInd];
+    return `${msgArr[randInd]}`;
   };
 
   render() {
@@ -86,15 +87,15 @@ class App extends Component {
           <div className="text-center">
             <br />
             <br />
-            <h4>{this.state.msg}</h4>
+            <h4 className="message">{this.state.msg}</h4>
           </div>
           <Wrapper>
             {this.state.flags.map(flags => (
-              <GameCard
+              <FlagCard
                 id={flags.id}
                 key={flags.id}
                 image={flags.image}
-                handleGameCardClick={this.handleGameCardClick}
+                handleFlagCardClick={this.handleFlagCardClick}
               />
             ))}
           </Wrapper>
