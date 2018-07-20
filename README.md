@@ -11,5 +11,4 @@ again 😉.
 
 ## What I used
 
-This game was built using [React JS](https://reactjs.org/)
-![react logo](https://belitsoft.com/sites/default/files/assets/images/react.png)
+This game was built using [React JS](https://reactjs.org/).
