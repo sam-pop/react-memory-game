@@ -15,6 +15,10 @@ class App extends Component {
     msg: ""
   };
 
+  componentDidMount() {
+    this.shuffleFlags();
+  }
+
   handleGameCardClick = id => {
     this.setState({ msg: "" });
     if (this.state.selectedFlags.includes(id)) {
