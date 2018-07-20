@@ -87,7 +87,12 @@ class App extends Component {
           <div className="text-center">
             <br />
             <br />
-            <h4 className="message">{this.state.msg}</h4>
+            <h4
+              className="message text-center mx-auto"
+              style={{ "background-color": "#fcf7f7", width: "300px" }}
+            >
+              <b> {this.state.msg}</b>
+            </h4>
           </div>
           <Wrapper>
             {this.state.flags.map(flags => (

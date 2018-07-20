@@ -1,7 +1,6 @@
 .card {
   background-size: cover;
   background-position: center;
-  /* background-clip: content-box; */
   border: 10px solid white;
   height: 150px;
   width: 100%;
@@ -11,4 +10,8 @@
   margin-top: 30px;
   margin-right: 10px;
   cursor: pointer;
+}
+
+.card:hover {
+  border: 0;
 }
