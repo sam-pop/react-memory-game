@@ -7,7 +7,7 @@ The goal of this memory game is to pick all the flags (from the flags that are d
 If you can pick all 9 flags without picking the same one twice - you are the WINNER!
 
 Mumbling to yourself "THEY ALL LOOK THE SAME" ? Don't worry, you can always try
-again 😉.
+again 😉
 
 ## What I used
 
